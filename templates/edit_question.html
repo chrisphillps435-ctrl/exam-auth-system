@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Exam Question</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- Add Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block title %}Edit Question{% endblock %}
+    {% block content %}
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card mt-5">
+          <div class="card-body">
+            <h3 class="card-title mb-4">Edit Question</h3>
+            <form method="post">
+              <div class="mb-3">
+                <label for="question_text" class="form-label">Question</label>
+                <input type="text" class="form-control" id="question_text" name="question_text" value="{{ question[1] }}" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Update</button>
+              <a href="/admin" class="btn btn-secondary">Cancel</a>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endblock %}
+
+    <!-- Add Bootstrap JS and dependencies -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block title %}Register User{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <div class="card mt-5">
+      <div class="card-body">
+        <h3 class="card-title mb-4">Register User</h3>
+        <form method="post" enctype="multipart/form-data">
+          <div class="mb-3">
+            <label for="role" class="form-label">Role</label>
+            <select class="form-select" id="role" name="role" required>
+              <option value="admin">Admin</option>
+              <option value="student">Student</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="username" name="username" required>
+          </div>
+          <div class="mb-3" id="passwordDiv">
+            <label for="password" class="form-label">Password (Admin only)</label>
+            <input type="password" class="form-control" id="password" name="password">
+          </div>
+          <div class="mb-3" id="faceDiv">
+            <label for="face_image" class="form-label">Face Image (Student only)</label>
+            <input type="file" class="form-control" id="face_image" name="face_image" accept="image/*">
+          </div>
+          <button type="submit" class="btn btn-success w-100">Register</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script>
+const roleSelect = document.getElementById('role');
+const passwordDiv = document.getElementById('passwordDiv');
+const faceDiv = document.getElementById('faceDiv');
+roleSelect.addEventListener('change', function() {
+  if (this.value === 'admin') {
+    passwordDiv.style.display = '';
+    faceDiv.style.display = 'none';
+  } else {
+    passwordDiv.style.display = 'none';
+    faceDiv.style.display = '';
+  }
+});
+// Set initial state
+if (roleSelect.value === 'admin') {
+  passwordDiv.style.display = '';
+  faceDiv.style.display = 'none';
+} else {
+  passwordDiv.style.display = 'none';
+  faceDiv.style.display = '';
+}
+</script>
+{% endblock %}

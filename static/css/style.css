@@ -1,0 +1,161 @@
+/* Main Title Styles */
+.main-title {
+	font-size: 3.2rem;
+	margin-bottom: 32px;
+	font-weight: 900;
+	text-align: center;
+	letter-spacing: 3px;
+	background: linear-gradient(90deg, #FFD700 0%, #FFA500 60%, #B22222 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	color: #FFD700;
+	text-shadow: 0 4px 24px rgba(0,0,0,0.18), 0 2px 0 #FFD700, 0 0px 12px #B22222;
+	font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+	font-family: 'Segoe UI', Arial, sans-serif;
+	background: radial-gradient(circle at 30% 30%, #FFD700 0%, #FFA500 40%, #B22222 100%);
+	min-height: 100vh;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.shield-container {
+	margin: 40px auto 0 auto;
+	width: 400px;
+	position: relative;
+}
+
+.shield {
+	width: 100%;
+	aspect-ratio: 1/1.2;
+	background: #FFD700;
+	border: 6px solid #FFD700;
+	border-radius: 30px 30px 50px 50px / 40px 40px 80px 80px;
+	box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	overflow: hidden;
+}
+.shield-section {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 2.2rem;
+	font-weight: bold;
+	color: #000;
+}
+.shield-section.top-left { background: #FFD700; }
+.shield-section.top-right { background: #FFA500; }
+.shield-section.bottom-left { background: #B22222; color: #fff; }
+.shield-section.bottom-right { background: #B22222; }
+
+.banner {
+	width: 420px;
+	margin: 0 auto;
+	background: #FFD700;
+	border-radius: 0 0 30px 30px;
+	box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+	padding: 12px 0;
+	text-align: center;
+	font-size: 1.1rem;
+	font-weight: bold;
+	color: #000;
+	letter-spacing: 2px;
+	border-bottom: 4px solid #B22222;
+}
+
+.login-center {
+	margin: 0 auto;
+	width: 350px;
+	background: #fff;
+	border-radius: 16px;
+	box-shadow: 0 12px 40px 0 rgba(0,0,0,0.18), 0 2px 8px 0 rgba(0,0,0,0.10);
+	border: 3px solid #FFD700;
+	padding: 32px 28px 24px 28px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 400px;
+}
+
+h2 {
+	color: #B22222;
+	font-size: 2rem;
+	margin-bottom: 18px;
+	font-weight: bold;
+	text-align: center;
+}
+
+form {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	align-items: center;
+}
+
+input[type="text"], input[type="password"] {
+    margin: 0;
+    padding: 10px;
+    width: 400px;
+    min-width: 320px;
+    max-width: 320px;
+    box-sizing: border-box;
+    border-radius: 6px;
+    border: 1.5px solid #FFD700;
+    font-size: 1rem;
+}
+select {
+	margin: 0;
+	padding: 10px;
+	width: 100%;
+	min-width: 200px;
+	max-width: 100%;
+	box-sizing: border-box;
+	border-radius: 6px;
+	border: 1.5px solid #FFD700;
+	font-size: 1rem;
+}
+button {
+	margin-top: 18px;
+	padding: 10px;
+	width: 80%;
+	box-sizing: border-box;
+	border-radius: 6px;
+	border: none;
+	font-size: 1rem;
+	background: linear-gradient(90deg, #FFD700 60%, #FFA500 100%);
+	color: #000;
+	font-weight: bold;
+	cursor: pointer;
+	transition: background 0.2s;
+	display: block;
+}
+
+button {
+	background: linear-gradient(90deg, #FFD700 60%, #FFA500 100%);
+	color: #000;
+	border: none;
+	font-weight: bold;
+	cursor: pointer;
+	transition: background 0.2s;
+}
+button:hover {
+	background: linear-gradient(90deg, #FFA500 60%, #FFD700 100%);
+}
+
+.faceStatus {
+	color: #B22222;
+	font-weight: bold;
+	margin-top: 8px;
+	text-align: center;
+}

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block title %}Student Dashboard{% endblock %}
+{% block content %}
+<h2 class="mb-4">Student Dashboard</h2>
+{% if finalized %}
+<div class="alert alert-success">You have submitted your answers. No further changes allowed.</div>
+{% endif %}
+<form method="post" action="/finalize_answers" onsubmit="return confirm('Are you sure you want to submit all your answers? You will not be able to edit them after this.');">
+  <button type="submit" class="btn btn-danger mb-3" {% if finalized %}disabled{% endif %}>Finalize & Submit All Answers</button>
+</form>
+<table class="table table-bordered table-hover">
+  <thead class="table-light"><tr><th>ID</th><th>Question</th><th>Your Answer</th><th>Action</th></tr></thead>
+  <tbody>
+    {% for q in questions %}
+    <tr>
+      <td>{{ q[0] }}</td>
+      <td>{{ q[1] }}</td>
+      <td>{{ answers[q[0]].answer_text if answers.get(q[0]) else '' }}</td>
+      <td>
+        {% if not finalized %}
+        <form method="post" action="/answer/{{ q[0] }}">
+          <input type="text" name="answer_text" class="form-control mb-1" value="{{ answers[q[0]].answer_text if answers.get(q[0]) else '' }}" required>
+          <button type="submit" class="btn btn-primary btn-sm">Save</button>
+        </form>
+        {% else %}
+        <span class="text-muted">Locked</span>
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
+{% block scripts %}
+<script>
+  // Redirect to dashboard after finalizing answers
+  {% if finalized %}
+  window.location.href = "{{ url_for('dashboard') }}";
+  {% endif %}
+</script>
+{% endblock %}
+{% block upload %}
+<form method="post" action="/upload" enctype="multipart/form-data">
+  <div class="mb-3">
+    <label for="file" class="form-label">Upload Face Image</label>
+    <input class="form-control" type="file" id="file" name="file" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Upload</button>
+</form>
+{% endblock %}

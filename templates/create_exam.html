@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Create Exam{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <div class="card mt-5">
+      <div class="card-body">
+        <h3 class="card-title mb-4">Create Exam</h3>
+        <form method="post">
+          <div class="mb-3">
+            <label for="question_text" class="form-label">Question</label>
+            <input type="text" class="form-control" id="question_text" name="question_text" required>
+          </div>
+          <button type="submit" class="btn btn-success">Add Question</button>
+          <a href="/admin" class="btn btn-secondary">Cancel</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
